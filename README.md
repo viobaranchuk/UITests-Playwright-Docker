@@ -1,4 +1,4 @@
-# VolvoCars web auto tests with Playwright
+# Web auto tests with Playwright
 
 ## Insallation
  * **npm init playwright@latest** : install latest version of playwright 
