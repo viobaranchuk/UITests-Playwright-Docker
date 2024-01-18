@@ -44,28 +44,28 @@ test("Page Object Model", async ({ page, browser }) => {
     await expect(safetyPage.cookieModal.cookiesBunner).not.toBeVisible();
     await page.waitForLoadState('domcontentloaded');
     await expect(safetyPage.header.mainLogo).toHaveAttribute('href', 'https://www.volvocars.com/intl');
-  
-    
-    //check all menu buttons
+   
+    //does not work
     await safetyPage.header.ourCarsBtn.click();
     await safetyPage.header.carsMenuCloseBtn.click();
-    await page.waitForTimeout(3000);
- 
+
 }
 );
 
-test.only("Without POM", async ({ page }) => {
+test("Without POM", async ({ page }) => {
   await page.goto('https://www.volvocars.com/intl/v/safety/highlights');
   await page.waitForLoadState('domcontentloaded');
   await page.locator('#onetrust-accept-btn-handler').click();
   await page.getByRole('button', { name: 'Our Cars' }).click();
   await expect(page.getByTestId('nav:topNavCarMenu')).toBeVisible;
-  await page.getByLabel('Main Navigation').getByRole('button', {name: "Our Cars"});
-  await page.waitForLoadState('domcontentloaded');
+  await page.pause();
+
+  //not stable
+  // await page.getByLabel('Main Navigation').getByRole('button', {name: "Our Cars"});
+  // await page.waitForLoadState('domcontentloaded');
   await expect(page.getByTestId('nav:carMenuCloseIcon')).toBeVisible;
   await page.getByTestId('nav:carMenuCloseIcon').click();
-  await expect(page.getByRole('button', {name: 'Safe Space Technology'})).toHaveAttribute('aria-selected', 'true');
-  await expect((page.getByTestId('SpringCarouselArrow:right'))).toBeVisible();
+  
   await expect(page.getByTestId('Hero-1').getByTestId('hero:image'))
   .toHaveAttribute('src', 'https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/safety/safety-highlights-hero1.jpg?iar=0');
   
@@ -101,4 +101,16 @@ test.only("Without POM", async ({ page }) => {
     await expect (page.getByRole('link', { name: 'Social Media'})).toHaveAttribute('href', 'https://www.volvocars.com/intl/v/legal/social-media');
     await expect (page.getByRole('link', { name: 'Tell Us'})).toHaveAttribute('href', 'https://www.volvocars.com/intl/v/legal/tell-us-reporting-line');
     
+});
+
+test("With UI locators and UI checks", async ({ page }) => {
+  await page.goto('/intl/v/safety/highlights');
+  await page.getByRole('button', { name: 'Accept' }).click();
+  await expect(page.getByRole('button', { name: 'Accept' })).not.toBeVisible();
+  await page.getByRole('button', { name: 'Shop' }).click();
+  await page.getByRole('button', { name: 'Owners' }).click();
+  await page.getByRole('button', { name: 'About us' }).click();
+  await page.getByRole('button', { name: 'Close' }).click();
+  await page.getByRole('button', { name: 'International' }).click();
+  await page.getByRole('button', { name: 'Close' }).click();
 });

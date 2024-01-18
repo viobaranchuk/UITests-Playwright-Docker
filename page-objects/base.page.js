@@ -9,7 +9,6 @@ export class BasePage {
         this.cookieModal = new CookiesModalPage(page);
         this.header = new HeaderSection(page);
         this.footer = new FooterSection(page);
-
     }
 
 }

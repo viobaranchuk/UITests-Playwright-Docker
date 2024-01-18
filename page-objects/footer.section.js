@@ -13,7 +13,6 @@ export class FooterSection {
         this.closeModalBtn = page.getByRole('button', { name: 'Close' });
     }
 
-
     async clickBackToTopBtn() {
         await this.backToTopBtn.click;
     }

@@ -12,3 +12,4 @@
  * **npx playwright test  --debug** : Runs the tests in debug mode
  * **npx playwright show report** : Open playwright report
  * **npx playwright test --workers 3** : Run with 3 workers in parellel
+
