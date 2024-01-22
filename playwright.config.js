@@ -26,6 +26,9 @@ module.exports = defineConfig({
     ['json', {  outputFolder: 'playwright-report' }],
     ['html', {  outputFolder: 'playwright-report' }],
   ],
+  expect: {
+    toHaveScreenshot: { maxDiffPixels: 20 },
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
