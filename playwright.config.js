@@ -24,7 +24,7 @@ module.exports = defineConfig({
   reporter: [
     // ['list', { printSteps: true }],
     // ['json', {  outputFile: 'test-results.json' }],
-    ['html', { outputFolder: 'volvo-test-report' }],
+    ['html', { outputFolder: 'playwright-report' }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
