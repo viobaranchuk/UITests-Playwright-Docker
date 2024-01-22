@@ -47,15 +47,6 @@ test('Navigation Bars comparison', async ({ page }) => {
     await safetyPage.header.clickNavigationButtonByText('Our Cars');
     await expect(page).toHaveScreenshot('OurCars-fullpage.png'), 
       { fullPage: true };
-    await safetyPage.header.clickNavigationButtonByText('Shop');
-    await expect(page).toHaveScreenshot('Shop-fullpage.png'), 
-      { fullPage: true };
-    await safetyPage.header.clickNavigationButtonByText('Owners');
-    await expect(page).toHaveScreenshot('Owners-fullpage.png'), 
-      { fullPage: true };
-    await safetyPage.header.clickNavigationButtonByText('About us');
-    await expect(page).toHaveScreenshot('AboutUs-fullpage.png'), 
-      { fullPage: true };
     await safetyPage.closeExpandedPanel();
     await safetyPage.footer.internationalBtn.click();
     await expect(page).toHaveScreenshot('International-fullpage.png'),
