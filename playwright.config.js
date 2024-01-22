@@ -23,8 +23,8 @@ module.exports = defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     // ['list', { printSteps: true }],
-    ['json', {  outputFile: 'test-results.json' }],
-    ['html', { outputFolder: 'playwright-report' }],
+    ['json', {  outputFolder: 'playwright-report', outputFile: 'test-results.json' }],
+    ['html', {  outputFolder: 'playwright-report' }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -37,7 +37,6 @@ module.exports = defineConfig({
     viewport: { width: 1280, height: 720 },
      // Capture screenshot after each test failure.
     screenshot: 'only-on-failure',
-
   },
 
 
