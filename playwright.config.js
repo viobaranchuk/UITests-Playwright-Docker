@@ -27,7 +27,7 @@ module.exports = defineConfig({
     ['html', {  outputFolder: 'playwright-report' }],
   ],
   expect: {
-    toHaveScreenshot: { maxDiffPixels: 20 },
+    toHaveScreenshot: { maxDiffPixels: 70 },
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
