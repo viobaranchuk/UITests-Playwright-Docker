@@ -1,4 +1,3 @@
-// @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 
 /**
@@ -18,14 +17,14 @@ module.exports = defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 2,
+  retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 3 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['list', { printSteps: true }],
+    // ['list', { printSteps: true }],
     // ['json', {  outputFile: 'test-results.json' }],
-    // ['html', { outputFolder: 'my-report' }],
+    ['html', { outputFolder: 'volvo-test-report' }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -46,20 +45,8 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: {...devices['Desktop Chrome'],
-      launchOptions: {
-      chromiumSandbox: true,
-      
-      // args: [
-      //   '--no-sandbox',
-      //   '--disable-setuid-sandbox',
-      //   '--disable-web-security',
-      //   '--disable-gpu',
-      //   '--disable-dev-shm-usage',
-      // ],
-      },
-       },
-     },
+      use: {...devices['Desktop Chrome'], channel: 'chrome' },
+    },
 
     {
       name: 'firefox',

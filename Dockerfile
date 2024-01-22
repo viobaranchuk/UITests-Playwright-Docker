@@ -6,13 +6,13 @@ FROM node:20
 FROM mcr.microsoft.com/playwright:v1.41.0-jammy
 
 # Set the working directory
-WORKDIR /volvo
+WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
 # Install dependencies
-RUN npx -y playwright@1.41.0 install --with-deps
+RUN npx npm install
 
 # Copy the rest of the application files
 COPY . .
