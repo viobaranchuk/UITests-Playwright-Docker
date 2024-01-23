@@ -39,7 +39,7 @@ test('Footer links verification', async ({ page }) => {
     await safetyPage.footer.checkFooterLinks();
 });
 
-test('Header Navigation Bar comparison', async ({ page }) => {  
+test('Header Navigation Bar visual comparison', async ({ page }) => {  
     const safetyPage = new SafetyPage(page);
     await safetyPage.header.clickNavigationButtonByText('Our Cars');
     await expect.soft(page).toHaveScreenshot('OurCars-fullpage.png'), 
@@ -47,7 +47,7 @@ test('Header Navigation Bar comparison', async ({ page }) => {
     await safetyPage.closeExpandedPanel();
 });
 
-test('Footer International Bar comparison', async ({ page }) => {
+test('Footer International Bar visual comparison', async ({ page }) => {
     const safetyPage = new SafetyPage(page);
     await safetyPage.footer.internationalBtn.click();
     await expect.soft(page).toHaveScreenshot('International-fullpage.png'),

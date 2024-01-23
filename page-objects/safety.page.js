@@ -7,7 +7,6 @@ export class SafetyPage extends BasePage{
    * @param {import('@playwright/test').Page} page
    * 
    */
-
     constructor(page){
         super(page);
         this.pagePath = "/intl/v/safety/highlights";
@@ -26,8 +25,7 @@ export class SafetyPage extends BasePage{
         this.sliderIcon3 = page.getByTestId('sliderWithIcons:title3');
         this.modelIntro5 = page.getByTestId('ModelIntro-5');
         this.productListCarousel = page.getByTestId('productListCarousel');
-        this.disclaimer = page.getByTestId('Disclaimer-1');
-        
+        this.disclaimer = page.getByTestId('Disclaimer-1');   
     };
 
     modelIntro2Text = "Volvo Cars has been a leader in automotive safety for decades, caring about the world we live in and the people around us. With our Safe Space Technology which includes all the standard safety features in a Volvo car, we help to keep you safe and make you feel safe.";
