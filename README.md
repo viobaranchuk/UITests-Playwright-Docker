@@ -1,4 +1,4 @@
-# Set of automated test suite using Playwright for https://www.volvocars.com/intl/v/safety/highlights page
+## Set of automated test suite using Playwright for https://www.volvocars.com/intl/v/safety/highlights page
 
 ## System Requirements
  * **Node.js v16.15.1 or greater (https://nodejs.org/)** should be installed
