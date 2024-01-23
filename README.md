@@ -1,4 +1,5 @@
-## Set of automated test suite using Playwright for https://www.volvocars.com/intl/v/safety/highlights page
+## Volvo Safety-Highlights Automation set-up
+The automation testing project uses Playwright framework with page object pattern and Docker images, GitHub actions CI set-up for https://www.volvocars.com/intl/v/safety/highlights
 
 ## System Requirements
  * **Node.js v16.15.1 or greater (https://nodejs.org/)** should be installed
