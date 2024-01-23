@@ -18,19 +18,4 @@ export class CookiesModalPage {
         await this.acceptCookiesBtn.click();
         await expect(this.cookiesBunner).not.toBeVisible();
     }
-
-
-    // async acceptCookies() {
-    //     await this.acceptCookiesBtn.click();
-    //     expect(this.cookiesBunner).not.toBeVisible;
-    // }
-
-    // async rejectAllCookies() {
-    //     await this.rejectAllBtn.click();
-    // }
-
-    // async openCookieSettings() {
-    //     await this.cookieSettingsBtn.click();
-    // }
-
 }

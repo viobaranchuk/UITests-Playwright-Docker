@@ -23,8 +23,8 @@ module.exports = defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     // ['list', { printSteps: true }],
-    ['json', {  outputFolder: 'playwright-report' }],
-    ['html', {  outputFolder: 'playwright-report' }],
+    ['html', {  outputFolder: 'playwright-report',  open: 'never' }],
+    
   ],
   expect: {
     toHaveScreenshot: { maxDiffPixels: 70 },

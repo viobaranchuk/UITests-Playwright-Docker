@@ -58,12 +58,12 @@ export class SafetyPage extends BasePage{
     }
 
     async checkLocalSubmenuLinks() {
-        await expect(this.page.getByTestId('localSubMenu:links:highlights')).toHaveAttribute('href', '/intl/v/safety/highlights');
-        await expect(this.page.getByTestId('localSubMenu:links:culture&vision')).toHaveAttribute('href', '/intl/v/safety/culture-vision');
-        await expect(this.page.getByTestId('localSubMenu:links:features')).toHaveAttribute('href', '/intl/v/safety/features');
-        await expect(this.page.getByTestId('localSubMenu:links:childsafety')).toHaveAttribute('href', '/intl/v/safety/child-safety');
-        await expect(this.page.getByTestId('localSubMenu:links:research')).toHaveAttribute('href', '/intl/v/safety/research');
-        await expect(this.page.getByTestId('localSubMenu:links:heritage')).toHaveAttribute('href', '/intl/v/safety/heritage');
+        await expect.soft(this.page.getByTestId('localSubMenu:links:highlights')).toHaveAttribute('href', '/intl/v/safety/highlights');
+        await expect.soft(this.page.getByTestId('localSubMenu:links:culture&vision')).toHaveAttribute('href', '/intl/v/safety/culture-vision');
+        await expect.soft(this.page.getByTestId('localSubMenu:links:features')).toHaveAttribute('href', '/intl/v/safety/features');
+        await expect.soft(this.page.getByTestId('localSubMenu:links:childsafety')).toHaveAttribute('href', '/intl/v/safety/child-safety');
+        await expect.soft(this.page.getByTestId('localSubMenu:links:research')).toHaveAttribute('href', '/intl/v/safety/research');
+        await expect.soft(this.page.getByTestId('localSubMenu:links:heritage')).toHaveAttribute('href', '/intl/v/safety/heritage');
     }
 
     async checkHeroImage1() {
@@ -82,34 +82,33 @@ export class SafetyPage extends BasePage{
     }
 
     async checkSliderIconTitles() {
-        await expect(this.sliderIcon1).toHaveAttribute('aria-label', 'Safe Space Technology');
-        await expect(this.sliderIcon2).toHaveAttribute('aria-label','Our most acclaimed lifesaver');
-        await expect(this.sliderIcon3).toHaveAttribute('aria-label', 'Data-based research');
+        await expect.soft(this.sliderIcon1).toHaveAttribute('aria-label', 'Safe Space Technology');
+        await expect.soft(this.sliderIcon2).toHaveAttribute('aria-label','Our most acclaimed lifesaver');
+        await expect.soft(this.sliderIcon3).toHaveAttribute('aria-label', 'Data-based research');
     }
 
     async checkModelIntoTexts() {
-        await expect(this.modelIntro2).toContainText(this.modelIntro2Text);
-        await expect(this.modelIntro3).toContainText(this.modelIntro3Text);
-        await expect(this.modelIntro4).toContainText(this.modelIntro4text);
-        await expect(this.modelIntro5).toContainText(this.modelIntro5Text);
+        await expect.soft(this.modelIntro2).toContainText(this.modelIntro2Text);
+        await expect.soft(this.modelIntro3).toContainText(this.modelIntro3Text);
+        await expect.soft(this.modelIntro4).toContainText(this.modelIntro4text);
+        await expect.soft(this.modelIntro5).toContainText(this.modelIntro5Text);
     }
 
     async checkMediaHighlights() {
-        await expect(this.page.getByTestId('media-highlight-0:image')).toHaveAttribute('alt', 'A man driving a car looking straight ahead.');
-        await expect(this.page.getByTestId('media-highlight-0')).toContainText(this.textMediaHighlights0);
-        await expect(this.page.getByTestId('media-highlight-1:image')).toHaveAttribute('alt', 'A time-delay shot of what looks like a trail of red tail lamps on an icy road.');
-        await expect(this.page.getByTestId('media-highlight-1')).toContainText(this.textMediaHighlights1);
+        await expect.soft(this.page.getByTestId('media-highlight-0:image')).toHaveAttribute('alt', 'A man driving a car looking straight ahead.');
+        await expect.soft(this.page.getByTestId('media-highlight-0')).toContainText(this.textMediaHighlights0);
+        await expect.soft(this.page.getByTestId('media-highlight-1:image')).toHaveAttribute('alt', 'A time-delay shot of what looks like a trail of red tail lamps on an icy road.');
+        await expect.soft(this.page.getByTestId('media-highlight-1')).toContainText(this.textMediaHighlights1);
     }
 
     async checkProductListCarousel() {
         await expect(this.page.getByTestId('productListCarousel:title')).toHaveText('All recharge models');
         const itemsAmount  = await this.page.getByTestId('productListCarouselItem:category').count();      
-        await expect(itemsAmount).toBe(11);
+        expect(itemsAmount).toBe(11);
     }
 
     async checkDisclaimer() {
-        await expect(this.disclaimer).toBeVisible();
-        await expect(this.disclaimer).toContainText(this.disclaimerText);
+        await expect.soft(this.disclaimer).toBeVisible();
+        await expect.soft(this.disclaimer).toContainText(this.disclaimerText);
     }
-
-};
+}

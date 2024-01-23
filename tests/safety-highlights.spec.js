@@ -1,16 +1,15 @@
 const { test, expect } = require('@playwright/test');
 const { SafetyPage } = require("../page-objects/safety.page");
 
-test.beforeEach("Page Object Model", async ({ page }) => {
+test.beforeEach("Accept cookies on Safety-Highlights page", async ({ page }) => {
     const safetyPage = new SafetyPage(page);
     await safetyPage.goto();
     await safetyPage.acceptCookies();
 });
 
-test('Highlights page test', async ({ page }) => {
+//does not work with local test run because of chrome sandbox restrictions
+test('Header navigation bar is expanded', async ({ page }) => {
     const safetyPage = new SafetyPage(page);
-//'Header checks'
-//does not work in chrome sandbox
     await safetyPage.header.clickNavigationButtonByText('Our Cars');
     await safetyPage.closeExpandedPanel();
     await safetyPage.header.clickNavigationButtonByText('Shop');
@@ -21,7 +20,7 @@ test('Highlights page test', async ({ page }) => {
     await safetyPage.closeExpandedPanel();
 });
 
-test('Hightlits page content checks', async ({ page }) => {
+test('Hightlits page content verification', async ({ page }) => {
     const safetyPage = new SafetyPage(page);
     await safetyPage.checkHeroImage1();
     await safetyPage.checkHeroImage2();
@@ -34,21 +33,24 @@ test('Hightlits page content checks', async ({ page }) => {
     await safetyPage.checkDisclaimer();
 });
 
-test('Footer checks', async ({ page }) => {
+test('Footer links verification', async ({ page }) => {
     const safetyPage = new SafetyPage(page);
     await safetyPage.footer.checkSocialLinks();
     await safetyPage.footer.checkFooterLinks();
-    await safetyPage.footer.internationalBtn.click();
+});
+
+test('Header Navigation Bar comparison', async ({ page }) => {  
+    const safetyPage = new SafetyPage(page);
+    await safetyPage.header.clickNavigationButtonByText('Our Cars');
+    await expect.soft(page).toHaveScreenshot('OurCars-fullpage.png'), 
+      { fullPage: true };
     await safetyPage.closeExpandedPanel();
 });
 
-test('Navigation Bars comparison', async ({ page }) => {  
+test('Footer International Bar comparison', async ({ page }) => {
     const safetyPage = new SafetyPage(page);
-    await safetyPage.header.clickNavigationButtonByText('Our Cars');
-    await expect(page).toHaveScreenshot('OurCars-fullpage.png'), 
+    await safetyPage.footer.internationalBtn.click();
+    await expect.soft(page).toHaveScreenshot('International-fullpage.png'),
       { fullPage: true };
     await safetyPage.closeExpandedPanel();
-    await safetyPage.footer.internationalBtn.click();
-    await expect(page).toHaveScreenshot('International-fullpage.png'),
-      { fullPage: true };
 });

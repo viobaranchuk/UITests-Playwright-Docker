@@ -1,4 +1,4 @@
-const { expect, Page } = require('@playwright/test');
+const { expect} = require('@playwright/test');
 export class HeaderSection {
 
      /**

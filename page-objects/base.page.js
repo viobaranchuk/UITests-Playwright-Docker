@@ -10,5 +10,4 @@ export class BasePage {
         this.header = new HeaderSection(page);
         this.footer = new FooterSection(page);
     }
-
 }
