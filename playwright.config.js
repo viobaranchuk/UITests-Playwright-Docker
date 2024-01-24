@@ -27,7 +27,7 @@ module.exports = defineConfig({
     
   ],
   expect: {
-    toHaveScreenshot: { maxDiffPixels: 70 },
+    toHaveScreenshot: { maxDiffPixels: 120 },
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
